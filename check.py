@@ -1,26 +1,37 @@
-import os
-from PIL import Image
+import numpy as np
+import cv2
+import pickle
 
-data = []
-labels = []
-cur_path = os.getcwd()
-print(cur_path)
+#############################################
 
-cur_path = cur_path+'\Train'
-print(cur_path)
+frameWidth = 640  # CAMERA RESOLUTION
+frameHeight = 480
+brightness = 180
+threshold = 0.75  # PROBABLITY THRESHOLD
+font = cv2.FONT_HERSHEY_SIMPLEX
 
-classes = 43
-for i in range(classes):
-    path = os.path.join(cur_path,str(i))
-    print(os.listdir(path))
-    images = os.listdir(path)
-    for a in images:
-        try:
-            image = Image.open(path + '\\' + a)
-            image = image.resize((30, 30))
-            image = np.array(image)
-            # sim = Image.fromarray(image)
-            data.append(image)
-            labels.append(i)
-        except:
-            print("Error loading image")
+# define a video capture object
+vid = cv2.VideoCapture(0)
+vid.set(3, frameWidth)
+vid.set(4, frameHeight)
+vid.set(10, brightness)
+
+while (True):
+
+    # Capture the video frame
+    # by frame
+    ret, frame = vid.read()
+
+    # Display the resulting frame
+    cv2.imshow('frame', frame)
+
+    # the 'q' button is set as the
+    # quitting button you may use any
+    # desired button of your choice
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# After the loop release the cap object
+vid.release()
+# Destroy all the windows
+cv2.destroyAllWindows()
