@@ -1,0 +1,2 @@
+# -Traffic-Sign-Recognition-for-Advanced-Driving-Assistance-System-ADAS-using-Deep-Learning
+Many researchers and large organisations, including as Tesla, Uber, Google, Mercedes-Benz, Toyota, Ford, Audi, and others, are working on autonomous vehicles and self-driving automobiles in the realm of Artificial Intelligence and technological innovation. To achieve accuracy with this technology, cars must be able to comprehend traffic signs and make appropriate judgments.
